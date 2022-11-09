@@ -3,29 +3,29 @@ Script generate "bubbles" which can be modified to get awesome effects, the bubb
 
 You can get some beautiful effects like this:
 
-Simple bubbles
+##Simple bubbles
 ![](./img/simple.png)
 
-Play with bubbles fill
+##Play with bubbles fill
 ![](./img/coloring.png)
 
-Connect the bubbles with a line, circle or both
+##Connect the bubbles with a line, circle or both
 ![](./img/conect.png)
 
-Change width conection and size of bubbles
+##Change width conection and size of bubbles
 ![](./img/width.png)
 
-Change color of the bubbles and the connection
+##Change color of the bubbles and the connection
 ![](./img/color.png)
 
-Mouse interact with the connection between the bubbles
+##Mouse interact with the connection between the bubbles
 ![](./img/interact.png)
 
-Use as many color as you want
+##Use as many color as you want
 ![](./img/manycolors.png)
 
-Mouse interact with bubbles fill
+##Mouse interact with bubbles fill
 ![](./img/fill.png)
 
-Change opacity of circunference and have this aweson onmouse show effect
+##Change opacity of circunference and have this awesome onmouse show effect
 ![](./img/opacity.png)
