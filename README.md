@@ -1,8 +1,6 @@
-# BubblesParticlesJavasript
-Script generate  particles from bottom to top with random colors, and mousemove event that generate particles on (x,y) mouse coordinates.
+# Interactive Bubbles
+Script generate "bubbles" which can be modified to get awesome effects, the bubbles can colide, randomize their size and a lot of thigs that you can checkout on the page 
 
 ![](./img/bubbles.png)
 
-## Implemented on a web page.
 
-![](./img/bubblepage.png)
