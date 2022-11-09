@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/7e82edf099.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./assets/style/style.css">
+  <title>Bubbles</title>
+  <!--
+    - custom css link
+  -->
+  <style>
+
+  </style>
+
+</head>
+
+<body id="body">
+    <canvas id="canvas" style="position:fixed; z-index:-1;" width="300" height="300">
+    </canvas>
+    <nav>
+      <div class="nav">
+        <a href=""><h2 class="logo">Interactive Bubbles</h2></a>
+        <a class="github" href="">Github <i class="fa-brands fa-github"></i></a>
+      </div>  
+      <div class="subtitle">
+        <p>By <a class="usuario" href="">fernandondin <i class="fa-brands fa-github-alt"></i></a></p>   
+        <div class="opacity-container">
+          <span>Ajustes</span>
+          <div class="box">
+            <input class="transparente" type="checkbox" id="transparente" name="transparente" checked>
+            <label class="check" for="transparente"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="form">
+        <div class="titulo">
+          <h2><i class="fa-solid fa-gear"></i> Ajustes <i class="fa-solid fa-gear"></i></h2>
+        </div>
+        <form action="">
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-circulos" for="slider-circulos">Número de circulos:</label>
+            </span>
+            <input id="slider-circulos" class="slider" name="slider-circulos" type="range" min="1" max="500" value="100">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-opacidad" for="slider-opacidad">Opacidad de los circulos:</label>
+            </span>
+            <input id="slider-opacidad" class="slider" name="slider-opacidad" type="range" min="0" max="10" value="10">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-tamano" for="slider-tamano">Tamaño de circulos:</label>
+            </span>
+            <input id="slider-tamano" class="slider" name="slider-tamano" type="range" min="1" max="200" value="12">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-opacidad-circunferencia" for="slider-opacidad-circunferencia">Opacidad de la circunferencia:</label>
+            </span>
+            <input id="slider-opacidad-circunferencia" class="slider" name="slider-opacidad-circunferencia" type="range" min="0" max="10" value="10">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-distancia-conexion" for="slider-distancia-conexion">Distancia conexion:</label>
+            </span>
+            <input id="slider-distancia-conexion" class="slider" name="slider-distancia-conexion" type="range" min="0" max="300" value="100">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-distancia-mouse" for="slider-distancia-mouse">Distancia mouse:</label>
+            </span>
+            <input id="slider-distancia-mouse" class="slider" name="slider-distancia-mouse" type="range" min="0" max="300" value="100">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-ancho-circunferencia" for="slider-ancho-circunferencia">Ancho circunferencia:</label>
+            </span>
+            <input id="slider-ancho-circunferencia" class="slider" name="slider-ancho-circunferencia" type="range" min="1" max="100" value="10">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-ancho-conexion" for="slider-ancho-conexion">Ancho conexion:</label>
+            </span>
+            <input id="slider-ancho-conexion" class="slider" name="slider-ancho-conexion" type="range" min="1" max="100" value="5">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-velocidad" for="slider-velocidad">Velocidad:</label>
+            </span>
+            <input id="slider-velocidad" class="slider" name="slider-velocidad" type="range" min="1" max="100" value="10">
+          </div>
+          <div class="slider-container">
+            <span class="span">
+              <label id="label-velocidad-coloreado" for="slider-velocidad-coloreado">Velocidad coloreado:</label>
+            </span>
+            <input id="slider-velocidad-coloreado" class="slider" name="slider-velocidad-coloreado" type="range" min="1" max="100" value="2">
+          </div>
+          <div class="color-container">
+            <span class="span">
+              <label for="color-circulos">Color circulos</label>
+            </span>
+            <input id="color-circulos" type="color" name="color-circulos" value="#000" >
+          </div>
+          <div class="color-container">
+            <span class="span">
+              <label for="color-conexion">Color conexion</label>
+            </span>
+            <input id="color-conexion" type="color" name="color-conexion" value="#000000" >
+          </div>
+          <div class="color-list-circles">
+            <div>
+              <span class="span">
+                <label for="">Colores random</label>
+              </span>
+            </div>
+            <div class="add-remove">
+              <div class="add-color">
+                <input id="selected-color" type="color" name="" value="">
+                <button id="add-color" class="button-list" type="button" name="button">
+                  <svg id="plus" width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="horizontal" x="67" y="15" width="16" height="120" rx="4" fill="white"/>
+                    <rect id="vertical" x="67" y="15" width="16" height="120" rx="4" fill="white"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="add-color">
+                <select class="select" name="">
+                  <option selected>Selecciona una opción</option>                  
+                </select>
+                <button id="remove-color" class="button-list" type="button" name="button">
+                  <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="tapa">
+                      <path d="M94.4982 28.7286H87.2484V21.6314H63.5911V28.7286H56.3413V21.6314C56.3388 19.6718 57.0902 17.7864 58.4399 16.3657C59.7895 14.945 61.634 14.098 63.5911 14H87.2484C89.2055 14.098 91.0499 14.945 92.3996 16.3657C93.7492 17.7864 94.5007 19.6718 94.4982 21.6314V28.7286Z" fill="white"/>
+                      <path d="M124.184 40.7099H25.8157C24.8037 40.7099 23.8332 40.3079 23.1176 39.5923C22.402 38.8767 22 37.9062 22 36.8942C22 35.8822 22.402 34.9116 23.1176 34.1961C23.8332 33.4805 24.8037 33.0785 25.8157 33.0785H124.184C125.196 33.0785 126.167 33.4805 126.882 34.1961C127.598 34.9116 128 35.8822 128 36.8942C128 37.9062 127.598 38.8767 126.882 39.5923C126.167 40.3079 125.196 40.7099 124.184 40.7099Z" fill="white"/>
+                    </g>
+                    <g id="bote">
+                      <path d="M110.295 136.102H40.5443C39.076 136.068 37.6289 135.744 36.2857 135.15C34.9425 134.556 33.7295 133.703 32.7161 132.64C31.7027 131.577 30.9086 130.324 30.3793 128.954C29.8501 127.584 29.5959 126.123 29.6314 124.655V49.2189H37.2628V124.655C37.2264 125.121 37.2825 125.59 37.4279 126.035C37.5733 126.479 37.8052 126.891 38.1101 127.245C38.4151 127.6 38.7871 127.891 39.2049 128.101C39.6226 128.311 40.0778 128.437 40.5443 128.471H110.295C110.762 128.437 111.217 128.311 111.635 128.101C112.052 127.891 112.424 127.6 112.729 127.245C113.034 126.891 113.266 126.479 113.412 126.035C113.557 125.59 113.613 125.121 113.577 124.655V49.2189H121.208V124.655C121.244 126.123 120.989 127.584 120.46 128.954C119.931 130.324 119.137 131.577 118.123 132.64C117.11 133.703 115.897 134.556 114.554 135.15C113.211 135.744 111.763 136.068 110.295 136.102V136.102Z" fill="white"/>
+                      <path d="M86.8668 55.9726H94.4982V113.208H86.8668V55.9726Z" fill="white"/>
+                      <path d="M56.3413 55.9726H63.9726V113.208H56.3413V55.9726Z" fill="white"/>
+                    </g>
+                  </svg>
+                  
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="color-container">
+            <span class="span">
+              <label for="body-color">Color de fondo</label>
+            </span>
+            <input id="body-color" type="color" name="body-color" value="#ffffff" >
+          </div>
+          <div class="box">
+            <span class="span">
+              <label for="color-random">Color random</label>
+            </span>
+            <input id="color-random" type="checkbox" name="color-random" value="false">
+            <label class="check" for="color-random"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label id="label-conexion-circulos">Conexión circulos</label>
+            </span>
+            <input type="checkbox" id="conexion-circulos" name="conexion-circulos" value="false">
+            <label class="check" for="conexion-circulos"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label>Conexion líneas</label>
+            </span>
+            <input id="conexion-lineas" type="checkbox" name="conexion-lineas" value="false">
+            <label class="check" for="conexion-lineas"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label id="label-mouse-lineas" for="mouse-lineas">Mouse líneas</label>
+            </span>
+            <input id="mouse-lineas" type="checkbox" name="mouse-lineas" value="false">
+            <label class="check" for="mouse-lineas"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label id="label-mouse-circulos" for="mouse-circulos">Mouse circulos</label>
+            </span>
+            <input id="mouse-circulos" type="checkbox" name="mouse-circulos" value="false">
+            <label class="check" for="mouse-circulos"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label for="random-tamano">Tamaño random</label>
+            </span>
+            <input id="random-tamano" type="checkbox" name="random-tamano" value="false" checked>
+            <label class="check" for="random-tamano"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label for="colision">Colision</label>
+            </span>
+            <input id="colision" type="checkbox" name="colision" value="false" checked>
+            <label class="check" for="colision"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label for="relleno-interaccion">Relleno interaccion</label>
+            </span>
+            <input id="relleno-interaccion" type="checkbox" name="relleno-interaccion" value="false">
+            <label class="check" for="relleno-interaccion"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label for="masa-random">Masa random</label>
+            </span>
+            <input id="masa-random" type="checkbox" name="masa-random" value="false">
+            <label class="check" for="masa-random"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+          <div class="box">
+            <span class="span">
+              <label for="">'Hacker'</label>
+            </span>
+            <input id="hacker" type="checkbox" name="hacker" value="false">
+            <label class="check" for="hacker"><div><i class="fa-solid fa-circle"></i></div></label>
+          </div>
+        </form>
+
+      </div>
+      
+      <div>
+        <div class="configuracion-container">
+          <div class="titulo">
+            <h2>Configuracion <i class="fa-solid fa-hammer"></i></h2>
+          </div>
+          <div class="configuracion">
+
+          </div>
+          <div class="button">         
+            <div class="copy-container">
+              <span class="copy-text">Copiar configuración</span>
+              <button id="copiar" class="copy">
+                <p class="tooltip">
+                  Copiado
+                </p>
+                <svg id="copy" width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect id="whiteR" x="31.5" y="21.5" width="57" height="57" rx="3.5" stroke="white" stroke-width="5"/>
+                  <rect id="blackR" x="29" y="19" width="62" height="62" rx="6" stroke="white" stroke-width="5"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
